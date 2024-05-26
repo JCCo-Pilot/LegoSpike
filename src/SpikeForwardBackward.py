@@ -1,5 +1,6 @@
 import runloop, color_matrix,color_sensor,distance_sensor, force_sensor, hub, motor
 from hub import light_matrix, port
+import color
 speed = 300
 armMove = -210
 
@@ -22,7 +23,29 @@ async def rotateLeftNinety():
 async def rotateRightNinety():
     await motor.run_for_degrees(port.E,295,speed)
     await motor.run_for_degrees(port.A,0,speed)
+async def followBlackLine():
+    if 
+
 #non-async
+def readColorSensor():
+    if color_sensor.color(port.B) is color.RED:
+        print("Red")
+    if color_sensor.color(port.B) is color.GREEN:
+        print("Green")
+    if color_sensor.color(port.B) is color.BLUE:
+        print("Blue")
+    if color_sensor.color(port.B) is color.MAGENTA:
+        print("Magenta")
+    if color_sensor.color(port.B) is color.YELLOW:
+        print("Yellow")
+    if color_sensor.color(port.B) is color.ORANGE:
+        print("Orange")
+    if color_sensor.color(port.B) is color.AZURE:
+        print("Azure")
+    if color_sensor.color(port.B) is color.BLACK:
+        print("Black")
+    if color_sensor.color(port.B) is color.WHITE:
+        print("White")
 def moveBackSim():
     motor.run_for_degrees(port.A,360,speed)
     motor.run_for_degrees(port.E,-360,speed)
@@ -60,7 +83,7 @@ def moveArmDown():
 async def main():
     # write your code here
     light_matrix.write("Hi!")
-    await move(-1)
+    readColorSensor()
     #await runIntoWall()
     #moveArmUp()
     #moveArmDown() 

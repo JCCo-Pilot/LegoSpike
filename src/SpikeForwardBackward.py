@@ -24,7 +24,10 @@ async def rotateRightNinety():
     await motor.run_for_degrees(port.E,295,speed)
     await motor.run_for_degrees(port.A,0,speed)
 async def followBlackLine():
-    if 
+    if color_sensor.color(port.B) is color.BLACK:
+        while(color_sensor.color(port.B)):
+            motor.run_for_degrees(port.A,-10,speed)
+            motor.run_for_degrees(port.E,10,speed)
 
 #non-async
 def readColorSensor():
@@ -83,7 +86,8 @@ def moveArmDown():
 async def main():
     # write your code here
     light_matrix.write("Hi!")
-    readColorSensor()
+    #readColorSensor()
+    await followBlackLine()
     #await runIntoWall()
     #moveArmUp()
     #moveArmDown() 

@@ -70,26 +70,19 @@ async def runIntoWall():
         #motor.run_for_degrees(port.A,10,speed)
         #motor.run_for_degrees(port.E,10,speed)
         distance = distance_sensor.distance(port.F)
-def moveArmUp():
-    global armUp
-    if armUp== False:
-        motor.run_for_degrees(port.D,-armMove,speed)
-        armUp = True
-        print("yes")
-
-def moveArmDown():
-    global armUp
-    if armUp :
-        motor.run_for_degrees(port.D,armMove,speed)
-        armUp = False
 #main methods
+#Drive Motors - A,E
+#Back Motor - D
+#Front Motor - C
 async def main():
     # write your code here
     light_matrix.write("Hi!")
-    #readColorSensor()
-    await followBlackLine()
+    readColorSensor()
+    #190
+    await motor.run_for_degrees(port.D,-200,100)
+    #await followBlackLine()
     #await runIntoWall()
     #moveArmUp()
-    #moveArmDown() 
+    #moveArmDown()
 
 runloop.run(main())
